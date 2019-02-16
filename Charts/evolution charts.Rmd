@@ -1,0 +1,25 @@
+---
+title: "Stalks evolution"
+author: "clement-tourbez"
+date: "16/02/2019"
+output: html_document
+---
+
+ 
+```{r}
+SciViews::R
+```
+
+```{r}
+chart(hip, height ~ day %col=% stalk ) + 
+  geom_point() +
+  geom_line()
+
+
+```
+
+
+
+
+
+
