@@ -4,19 +4,39 @@ author: "clement-tourbez"
 date: "16/02/2019"
 output: html_document
 ---
-
+# setting
  
 ```{r}
 SciViews::R
 ```
 
+# data
 ```{r}
-chart(hip, height ~ day %col=% stalk ) + 
+
+```
+
+
+
+
+# Stalk evolution
+
+
+
+```{r}
+chart(stalk_evo, height ~ day %col=% stalk ) + 
   geom_point() 
 
 
 ```
 
+# flower birth day
+
+
+
+```{r}
+pander::pander(flow,
+               caption = "day of the flower birth")
+```
 
 
 
