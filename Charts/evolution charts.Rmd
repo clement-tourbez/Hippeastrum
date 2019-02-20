@@ -15,7 +15,7 @@ SciViews::R
 
 ```
 
-
+![](../figure/figure1.jpg)
 
 
 # Stalk evolution
@@ -37,6 +37,55 @@ chart(stalk_evo, height ~ day %col=% stalk ) +
 pander::pander(flow,
                caption = "day of the flower birth")
 ```
+
+
+# flower evolution
+
+
+
+```{r}
+chart(flower_evo, petal_lg ~ age_day ) + geom_point()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
