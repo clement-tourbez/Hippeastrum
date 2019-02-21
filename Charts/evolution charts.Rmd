@@ -12,7 +12,11 @@ SciViews::R
 
 # data
 ```{r}
+stalk_evo <- read("../data/stalk_evo.rds")
+flower_evo <- read("../data/flower_evo.rds")
 
+
+flower_evo <- unite(flower_evo , col = "stalk_flower" , stalk , flower , sep = "_")
 ```
 
 ![](../figure/figure1.jpg)
@@ -44,14 +48,22 @@ pander::pander(flow,
 
 
 ```{r}
-chart(flower_evo, petal_lg ~ age_day ) + geom_point()
+a <- chart(flower_evo, petal_lg ~ age_day ) + geom_point()
+
+b <- chart(flower_evo, male_lg ~ age_day ) + geom_point()
+
+c <- chart(flower_evo, fml_lg ~ age_day ) + geom_point()
+
+combine_charts(list(a,b,c))
 ```
 
 
+# Pollen
+
+![](../figure/pollen1.jpg)
 
 
-
-
+![](../figure/pollen2.jpg)
 
 
 
