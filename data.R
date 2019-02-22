@@ -12,9 +12,9 @@ SciViews::R
 
 
 (stalk_evo <- as_dataframe(tibble(
-  stalk = rep(c(1, 2,3,4,5),6),
-  height = c(26.8,1.5,1.3,0.3,2.3,28.5,1.5,1.3,0.3,2.4,31.2,1.5,1.4,0.4,2.4,33.0,1.5,1.4,0.4,2.3,29.4,1.5,1.4,0.4,2.3,29.7,1.6,1.5,0.4,2.4),
-  day = rep(c(1,2,3,4,5,6), each = 5 )
+  stalk = rep(c(1, 2,3,4,5),7),
+  height = c(26.8,1.5,1.3,0.3,2.3,28.5,1.5,1.3,0.3,2.4,31.2,1.5,1.4,0.4,2.4,33.0,1.5,1.4,0.4,2.3,29.4,1.5,1.4,0.4,2.3,29.7,1.6,1.5,0.4,2.4,31.2,1.8,1.6,0.7,2.6),
+  day = rep(c(1,2,3,4,5,6,7), each = 5 )
 )))
 
 stalk_evo$stalk <- as.factor(stalk_evo$stalk)
@@ -51,12 +51,12 @@ flow
 # flower evolution after the birth
 
   tibble(
-    stalk = c(1,1,1),
-    flower    = c(1,1,1),
-    age_day     = c(1,2,3),
-    petal_lg = c(10.3,12,12.2),
-    male_lg = c(6.6,6.5,6.3),
-    fml_lg= c (10.1,10.1,10.1)
+    stalk = c(1,1,1,1),
+    flower    = c(1,1,1,1),
+    age_day     = c(1,2,3,4),
+    petal_lg = c(10.3,12,12.2,12.4),
+    male_lg = c(6.6,6.5,6.3,6.2),
+    fml_lg= c (10.1,10.1,10.1,10.1)
   ) -> flower_evo
 
   flower_evo$stalk <- as.factor(flower_evo$stalk)
