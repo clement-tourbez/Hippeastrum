@@ -1,0 +1,54 @@
+---
+title: "Test"
+author: "clement-tourbez"
+date: "24/02/2019"
+output: html_document
+---
+
+
+
+
+```{r}
+a <- chart(flower_evo, ~petal_lg  ) + geom_density()
+
+b <- chart(flower_evo, ~male_lg  ) + geom_density()
+
+c <- chart(flower_evo, ~fml_lg  ) + geom_density()
+
+combine_charts(list(a,b,c))
+```
+
+```{r}
+mean(flower_evo$fml_lg)
+
+(chi2_obs <- sum((flower_evo$fml_lg  - alpha_i)^2 / alpha_i))
+```
+
+
+
+```{r}
+
+
+chisq.test(flower_evo$fml_lg, p = (10.08333), rescale.p = FALSE)
+```
+
+
+```{r}
+.hc
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
