@@ -2,7 +2,7 @@
 title: "Stalks evolution"
 author: "clement-tourbez"
 date: "16/02/2019"
-output: html_document
+output: html_notebook
 ---
 # setting
  
@@ -14,15 +14,17 @@ SciViews::R
 ```{r}
 stalk_evo <- read("../data/stalk_evo.rds")
 flower_evo <- read("../data/flower_evo.rds")
-
+flower_day <- read("../data/flower_day.rds")
 
 flower_evo <- unite(flower_evo , col = "stalk_flower" , stalk , flower , sep = "_")
 ```
 
 ![](../figure/figure1.jpg)
 
+# Results
 
-# Stalk evolution
+
+## Stalk evolution
 
 
 
@@ -33,19 +35,42 @@ chart(stalk_evo, height ~ day %col=% stalk ) +
 
 ```
 
-# flower birth day
+## flower calendar
+
+
+### Metadata information
+
+
+Here is a table including the flower evolution in the time, like a type of flower calendar.
+
+The first column is named stalk_number, the first number is the stalk id and the second one corresponds to the flower id (separed by corresponding stalk). The combination resulting is the global flower id.
+
+The day_birth means the day when the floral envelope opens. I have considered the birth day as the day when a petal take off of the others.
+
+The day_death means the day when the floral envelope closes. I have considered the death day as the day when a folded petal cut the central axis of symmetry.
+
+![an unopened flower](../figure/figure 3.jpg)
 
 
 
+![an closed flower](../figure/figure 4.jpg)
+### Table
 ```{r}
-pander::pander(flow,
+knitr::kable(flower_day,
                caption = "day of the flower birth")
 ```
 
 
-# flower evolution
+### Charts 
 
 
+### Analysis
+
+
+
+## flower evolution
+
+I have taken measurements during the flower "life time". That means from the birth day to the death day (see flower calendar for more explanations)
 
 ```{r}
 a <- chart(flower_evo, petal_lg ~ age_day ) + geom_point()
@@ -60,7 +85,7 @@ combine_charts(list(a,b,c))
 
 # Pollen
 
-![](../figure/pollen1.jpg)
+![](../figure/polen1.jpg)
 
 
 ![](../figure/pollen2.jpg)

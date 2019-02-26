@@ -12,9 +12,9 @@ SciViews::R
 
 
 (stalk_evo <- as_dataframe(tibble(
-  stalk = rep(c(1, 2,3,4,5),10),
-  height = c(26.8,1.5,1.3,0.3,2.3,28.5,1.5,1.3,0.3,2.4,31.2,1.5,1.4,0.4,2.4,33.0,1.5,1.4,0.4,2.3,29.4,1.5,1.4,0.4,2.3,29.7,1.6,1.5,0.4,2.4,31.2,1.8,1.6,0.7,2.6,32.9,1.8,1.7,0.6,2.6,33.1,1.8,1.6,0.8,2.7,35.4,1.9,1.7,0.7,2.7),
-  day = rep(c(1,2,3,4,5,6,7,8,9,10), each = 5 )
+  stalk = rep(c(1, 2,3,4,5),11),
+  height = c(26.8,1.5,1.3,0.3,2.3,28.5,1.5,1.3,0.3,2.4,31.2,1.5,1.4,0.4,2.4,33.0,1.5,1.4,0.4,2.3,29.4,1.5,1.4,0.4,2.3,29.7,1.6,1.5,0.4,2.4,31.2,1.8,1.6,0.7,2.6,32.9,1.8,1.7,0.6,2.6,33.1,1.8,1.6,0.8,2.7,35.4,1.9,1.7,0.7,2.7,39.2,1.9,1.8,0.9,2.9),
+  day = rep(c(1,2,3,4,5,6,7,8,9,10,11), each = 5 )
 )))
 
 stalk_evo$stalk <- as.factor(stalk_evo$stalk)
@@ -36,19 +36,17 @@ ggpubr::ggtexttable(head(stalk_evo))
 tibble(
     stalk = c(1,1,2,2,3,3,4,4,5,5),
     number    = c(1,2,1,2,1,2,1,2,1,2),
-    day      = c(4,0,0,0,0,0,0,0,0,0)
+    day_birth      = c(4,0,0,0,0,0,0,0,0,0),
+    day_death = c(10,0,0,0,0,0,0,0,0,0)
   ) -> flower_day
 
-
-flow <- xtabs(data = flower_day, day ~ stalk + number)
-flow
-
+flower_day <- unite(flower_day , col = "stalk_number" , stalk , number , sep = "_")
 
 
   pander::pander(flow,
                caption = "day of the flower birth")
 
-# flower evolution after the birth
+# flower evolution after the birth to the death
 
   tibble(
     stalk = c(1,1,1,1,1,1,1),
@@ -77,7 +75,7 @@ flow
  write$rds(flower_evo, file = "data/flower_evo.rds", compress = "gz")
 
 
-
+ write$rds(flower_day, file = "data/flower_day.rds", compress = "gz")
 
 
 
