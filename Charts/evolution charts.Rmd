@@ -51,7 +51,7 @@ The day_death means the day when the floral envelope closes. I have considered t
 
 ![an unopened flower](../figure/figure 3.jpg)
 
-
+![an opened flower](../figure/figure 5.jpg)
 
 ![an closed flower](../figure/figure 4.jpg)
 ### Table
@@ -73,11 +73,11 @@ knitr::kable(flower_day,
 I have taken measurements during the flower "life time". That means from the birth day to the death day (see flower calendar for more explanations)
 
 ```{r}
-a <- chart(flower_evo, petal_lg ~ age_day ) + geom_point()
+a <- chart(flower_evo, petal_lg ~ age_day %col=% flower) + geom_point()
 
-b <- chart(flower_evo, male_lg ~ age_day ) + geom_point()
+b <- chart(flower_evo, male_lg ~ age_day %col=% flower) + geom_point()
 
-c <- chart(flower_evo, fml_lg ~ age_day ) + geom_point()
+c <- chart(flower_evo, fml_lg ~ age_day %col=% flower) + geom_point()
 
 combine_charts(list(a,b,c))
 ```
