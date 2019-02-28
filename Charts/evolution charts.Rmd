@@ -30,7 +30,7 @@ flower_evo <- unite(flower_evo , col = "stalk_flower" , stalk , flower , sep = "
 
 ```{r}
 chart(stalk_evo, height ~ day %col=% stalk ) + 
-  geom_point() 
+  geom_point()
 
 
 ```
