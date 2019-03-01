@@ -56,6 +56,8 @@ The day_death means the day when the floral envelope closes. I have considered t
 ![an closed flower](../figure/figure 4.jpg)
 ### Table
 ```{r}
+
+
 knitr::kable(flower_day,
                caption = "day of the flower birth")
 ```
