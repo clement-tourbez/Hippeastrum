@@ -85,6 +85,23 @@ combine_charts(list(a,b,c))
 ```
 
 
+```{r}
+
+visdat::vis_dat(flower_evo)
+select(flower_evo,male_lg, fml_lg , petal_lg)%>.%
+correlation(.)%>.%
+
+
+plot(correlation(.))
+```
+
+```{r}
+cor.test(data = flower_evo, ~ male_lg + fml_lg,, method = "spearman")
+cor.test(data = flower_evo, ~ fml_lg + petal_lg ,, method = "spearman")
+cor.test(data = flower_evo, ~ male_lg + petal_lg,, method = "spearman")
+```
+
+
 # Pollen
 
 ![](../figure/polen1.jpg)
