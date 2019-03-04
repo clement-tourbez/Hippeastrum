@@ -111,13 +111,17 @@ cor.test(data = flower_evo, ~ male_lg + petal_lg,, method = "spearman")
 
 
 
+# Fruit
+
+The flower can be self pollinated by the pollen of the same flower or by the pollen of another. The pollination induces quicky the carpel growth.
 
 
+![](../figure/figure 6.jpg)
 
 
-
-
-
+```{r}
+chart(fruit_evo, perimeter ~ age )+ geom_point()
+```
 
 
 
