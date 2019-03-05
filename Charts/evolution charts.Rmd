@@ -26,6 +26,9 @@ flower_evo <- unite(flower_evo , col = "stalk_flower" , stalk , flower , sep = "
 
 ## Stalk evolution
 
+```{r}
+chart(stalk_type, ~ type %fill=% type) + geom_bar() 
+```
 
 
 ```{r}
@@ -83,6 +86,30 @@ c <- chart(flower_evo, fml_lg ~ age_day %col=% flower) + geom_point()
 
 combine_charts(list(a,b,c))
 ```
+
+
+```{r}
+d <- chart(flower_evo, ~ petal_lg  %col=% flower) + geom_density()
+
+e <- chart(flower_evo, ~ male_lg  %col=% flower) + geom_density()
+
+f <- chart(flower_evo, ~ fml_lg  %col=% flower) + geom_density()
+
+combine_charts(list(d,e,f))
+
+
+```
+
+```{r}
+summarise(flower_evo, 
+          "moy_petal" = mean(flower_evo$petal_lg),
+"moy_male" = mean(flower_evo$male_lg),
+"moy_fml" = mean(flower_evo$fml_lg),
+"sd_petal" =sd(flower_evo$petal_lg),
+"sd_male" =sd(flower_evo$male_lg),
+"sd_fml" = sd(flower_evo$fml_lg))
+```
+
 
 
 ```{r}
