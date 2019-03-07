@@ -38,6 +38,30 @@ chart(stalk_evo, height ~ day %col=% stalk ) +
 
 ```
 
+
+```{r}
+filter(stalk_evo, stalk == c(2,3,4,5,6))%>.%
+  group_by(., day, stalk) %>.%
+  summarise(., mean = mean(height), sd = sd(height), count = sum(!is.na(height)))
+```
+
+```{r}
+filter(stalk_evo, stalk == c(2,3,4,5,6))%>.%
+bartlett.test(data = ., height ~ interaction(day, stalk))
+```
+
+
+
+```{r}
+filter(stalk_evo, stalk == c(2,3,4,5,6))%>.%
+
+anova(anova. <- lm(data = ., height ~ day * stalk))
+```
+
+
+
+
+
 ## flower calendar
 
 
@@ -89,11 +113,11 @@ combine_charts(list(a,b,c))
 
 
 ```{r}
-d <- chart(flower_evo, ~ petal_lg  %col=% flower) + geom_density()
+d <- chart(flower_evo, petal_lg ~ flower %col=% flower) + geom_violin()
 
-e <- chart(flower_evo, ~ male_lg  %col=% flower) + geom_density()
+e <- chart(flower_evo,  male_lg ~ flower %col=% flower) + geom_violin()
 
-f <- chart(flower_evo, ~ fml_lg  %col=% flower) + geom_density()
+f <- chart(flower_evo, fml_lg  ~ flower %col=% flower) + geom_violin()
 
 combine_charts(list(d,e,f))
 
@@ -114,7 +138,7 @@ summarise(flower_evo,
 
 ```{r}
 
-visdat::vis_dat(flower_evo)
+#visdat::vis_dat(flower_evo)
 select(flower_evo,male_lg, fml_lg , petal_lg)%>.%
 correlation(.)%>.%
 
@@ -147,7 +171,7 @@ The flower can be self pollinated by the pollen of the same flower or by the pol
 
 
 ```{r}
-chart(fruit_evo, perimeter ~ age )+ geom_point()
+chart(fruit_evo, perimeter ~ age | flower)+ geom_point() + geom_line()
 ```
 
 
