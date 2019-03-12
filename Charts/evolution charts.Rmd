@@ -175,12 +175,13 @@ The flower can be self pollinated by the pollen of the same flower or by the pol
 chart(fruit_evo, perimeter ~ age | flower)+ geom_point() + geom_line()
 ```
 
+#### Analysis:
+
+1) This chart shows a pollinated flower. The carpel perimeter increases with the age of the flower.
 
 
 
-
-
-
+2) This chart shows a flower wich has not been pollinated. The flower carpel starts to decrease in perimeter quickly after few days.
 
 
 
