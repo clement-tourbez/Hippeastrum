@@ -34,7 +34,7 @@ chart(stalk_type, ~ type %fill=% type) + geom_bar()
 
 ```{r}
 chart(stalk_evo, height ~ day %col=% stalk ) + 
-  geom_point()
+  geom_point(na.rm=TRUE)
 
 
 ```
