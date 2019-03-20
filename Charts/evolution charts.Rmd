@@ -171,6 +171,7 @@ The flower can be self pollinated by the pollen of the same flower or by the pol
 ![](../figure/figure 6.jpg)
 
 
+
 ```{r}
 chart(fruit_evo, perimeter ~ age | flower)+ geom_point() + geom_line()
 ```
