@@ -193,13 +193,18 @@ Here is a relation between the time and the leaf growth
 
 
 ```{r}
-head(stalk_evo)
+show(stalk_evo)
+
+stalk_evo %>.%
+  filter(., stalk == c( "2","3","4","5","6")) -> leaf_evo
+
+show(leaf_evo)
 ```
 
 
 
 ```{r}
-chart(stalk_evo, height ~ day ) +geom_point(na.rm =TRUE)
+chart(leaf_evo, height ~ day ) +geom_point()
 ```
 
 
