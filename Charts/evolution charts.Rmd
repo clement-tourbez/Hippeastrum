@@ -13,7 +13,7 @@ SciViews::R
 # data
 ```{r}
 stalk_evo <- read("../data/stalk_evo.rds")
-
+visdat::vis_dat(stalk_evo)
 flower_evo <- read("../data/flower_evo.rds")
 flower_day <- read("../data/flower_day.rds")
 
@@ -196,7 +196,7 @@ Here is a relation between the time and the leaf growth
 show(stalk_evo)
 
 stalk_evo %>.%
-  filter(., stalk == c( "2","3","4","5","6")) -> leaf_evo
+  filter(., stalk != 1) -> leaf_evo
 
 show(leaf_evo)
 ```
@@ -204,12 +204,22 @@ show(leaf_evo)
 
 
 ```{r}
-chart(leaf_evo, height ~ day ) +geom_point()
+chart(leaf_evo, height ~ day %col=% stalk ) +geom_point(na.rm=TRUE)
+```
+
+```{r}
+corrplot::corrplot(cor(leaf_evo[, 2:3],
+  use = "pairwise.complete.obs"), method = "ellipse")
 ```
 
 
+#Analysis
 
+There is a significant correlation between the day and the height variable
 
+```{r}
+
+```
 
 
 

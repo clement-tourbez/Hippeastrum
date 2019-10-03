@@ -18,7 +18,7 @@ SciViews::R
 )))
 
 stalk_evo$stalk <- as.factor(stalk_evo$stalk)
-stalk_evo$day <- as.factor(stalk_evo$day)
+#stalk_evo$day <- as.factor(stalk_evo$day)
 
 visdat::vis_dat(stalk_evo)
 
