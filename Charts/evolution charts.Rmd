@@ -186,12 +186,21 @@ chart(fruit_evo, perimeter ~ age | flower)+ geom_point() + geom_line()
 
 
 
+# Linear regression 
+
+Here is a relation between the time and the leaf growth
 
 
 
+```{r}
+head(stalk_evo)
+```
 
 
 
+```{r}
+chart(stalk_evo, height ~ day ) +geom_point(na.rm =TRUE)
+```
 
 
 
